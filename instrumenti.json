@@ -1,0 +1,264 @@
+[
+  {
+    "naziv": "Trombon",
+    "vrsta": "puhački",
+    "žanrovi": [
+      "jazz",
+      "blues"
+    ],
+    "ključ": "F",
+    "polifonija": "monofon",
+    "zemljaPodrijetla": "Engleska",
+    "stoljećeNastanka": 16,
+    "materijal": "lim",
+    "prosječnaTežinaKg": 2,
+    "podvrste": [
+      {
+        "nazivPodvrste": "Bas trombon",
+        "raspon": "F1-F4"
+      },
+      {
+        "nazivPodvrste": "Tenor trombon",
+        "raspon": "E2-F5"
+      },
+      {
+        "nazivPodvrste": "Alt trombon",
+        "raspon": "A2-Eb5"
+      }
+    ],
+    "predstavnici": [
+      {
+        "ime": "Joseph",
+        "prezime": "Alessi"
+      },
+      {
+        "ime": "Wycliffe",
+        "prezime": "Gordon"
+      },
+      {
+        "ime": "Ian",
+        "prezime": "Bousfield"
+      }
+    ]
+  },
+  {
+    "naziv": "Violina",
+    "vrsta": "gudački",
+    "žanrovi": [
+      "klasika"
+    ],
+    "ključ": "G",
+    "polifonija": "monofon",
+    "zemljaPodrijetla": "Italija",
+    "stoljećeNastanka": 16,
+    "materijal": "drvo",
+    "prosječnaTežinaKg": 0.5,
+    "podvrste": null,
+    "predstavnici": [
+      {
+        "ime": "Joshua",
+        "prezime": "Bell"
+      },
+      {
+        "ime": "Nicola",
+        "prezime": "Benedetti"
+      },
+      {
+        "ime": "Niccolo",
+        "prezime": "Paganini"
+      }
+    ]
+  },
+  {
+    "naziv": "Klavir",
+    "vrsta": "žičani",
+    "žanrovi": [
+      "razni"
+    ],
+    "ključ": null,
+    "polifonija": "polifon",
+    "zemljaPodrijetla": "Italija",
+    "stoljećeNastanka": 17,
+    "materijal": "razni",
+    "prosječnaTežinaKg": 400,
+    "podvrste": null,
+    "predstavnici": [
+      {
+        "ime": "Sergey",
+        "prezime": "Rachmaninov"
+      }
+    ]
+  },
+  {
+    "naziv": "Gitara",
+    "vrsta": "žičani",
+    "žanrovi": [
+      "razni"
+    ],
+    "ključ": "G",
+    "polifonija": "polifon",
+    "zemljaPodrijetla": "nepoznato",
+    "stoljećeNastanka": null,
+    "materijal": "drvo",
+    "prosječnaTežinaKg": 2.5,
+    "podvrste": [
+      {
+        "nazivPodvrste": "Klasična",
+        "raspon": "E2-E6"
+      },
+      {
+        "nazivPodvrste": "Akustična",
+        "raspon": "E2-E6"
+      },
+      {
+        "nazivPodvrste": "Električna",
+        "raspon": "E2-E6"
+      }
+    ],
+    "predstavnici": [
+      {
+        "ime": "Jimi",
+        "prezime": "Hendrix"
+      }
+    ]
+  },
+  {
+    "naziv": "Violončelo",
+    "vrsta": "žičani",
+    "žanrovi": [
+      "klasika"
+    ],
+    "ključ": "F",
+    "polifonija": "monofon",
+    "zemljaPodrijetla": "Italija",
+    "stoljećeNastanka": 16,
+    "materijal": "drvo",
+    "prosječnaTežinaKg": 3,
+    "podvrste": null,
+    "predstavnici": [
+      {
+        "ime": "Mstislav",
+        "prezime": "Rostropovich"
+      }
+    ]
+  },
+  {
+    "naziv": "Kontrabas",
+    "vrsta": "žičani",
+    "žanrovi": [
+      "razni"
+    ],
+    "ključ": "F",
+    "polifonija": "monofon",
+    "zemljaPodrijetla": "Europa",
+    "stoljećeNastanka": 15,
+    "materijal": "drvo",
+    "prosječnaTežinaKg": 10,
+    "podvrste": null,
+    "predstavnici": [
+      {
+        "ime": "Ray",
+        "prezime": "Brown"
+      }
+    ]
+  },
+  {
+    "naziv": "Truba",
+    "vrsta": "puhački",
+    "žanrovi": [
+      "jazz",
+      "klasika"
+    ],
+    "ključ": "G",
+    "polifonija": "monofon",
+    "zemljaPodrijetla": "Egipat",
+    "stoljećeNastanka": -20,
+    "materijal": "lim",
+    "prosječnaTežinaKg": 1.1,
+    "podvrste": null,
+    "predstavnici": [
+      {
+        "ime": "Louis",
+        "prezime": "Armstrong"
+      }
+    ]
+  },
+  {
+    "naziv": "Viola",
+    "vrsta": "gudački",
+    "žanrovi": null,
+    "ključ": "C",
+    "polifonija": "monofon",
+    "zemljaPodrijetla": "Italija",
+    "stoljećeNastanka": 16,
+    "materijal": "drvo",
+    "prosječnaTežinaKg": 0.7,
+    "podvrste": null,
+    "predstavnici": [
+      {
+        "ime": "Wolfgang Amadeus",
+        "prezime": "Mozart"
+      }
+    ]
+  },
+  {
+    "naziv": "Klarinet",
+    "vrsta": "puhački",
+    "žanrovi": [
+      "klasika"
+    ],
+    "ključ": "G",
+    "polifonija": "monofon",
+    "zemljaPodrijetla": "Njemačka",
+    "stoljećeNastanka": 18,
+    "materijal": "drvo",
+    "prosječnaTežinaKg": 0.6,
+    "podvrste": null,
+    "predstavnici": [
+      {
+        "ime": "Benny",
+        "prezime": "Goodman"
+      }
+    ]
+  },
+  {
+    "naziv": "Flauta",
+    "vrsta": "puhački",
+    "žanrovi": [
+      "klasika"
+    ],
+    "ključ": "G",
+    "polifonija": "monofon",
+    "zemljaPodrijetla": "Slovenija",
+    "stoljećeNastanka": -430,
+    "materijal": "lim",
+    "prosječnaTežinaKg": 0.6,
+    "podvrste": null,
+    "predstavnici": [
+      {
+        "ime": "James",
+        "prezime": "Galway"
+      }
+    ]
+  },
+  {
+    "naziv": "Tuba",
+    "vrsta": "puhački",
+    "žanrovi": [
+      "klasika"
+    ],
+    "ključ": "F",
+    "polifonija": "monofon",
+    "zemljaPodrijetla": "Njemačka",
+    "stoljećeNastanka": 19,
+    "materijal": "lim",
+    "prosječnaTežinaKg": 13,
+    "podvrste": null,
+    "predstavnici": [
+      {
+        "ime": "Arnold",
+        "prezime": "Jacobs"
+      }
+    ]
+  }
+]
