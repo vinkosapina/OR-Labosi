@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="hr">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Tablica glazbenih instrumenata</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
+</head>
+
+<body>
+    <h1>Glazbeni instrumenti</h1>
+
+    <form id="filterForm">
+        <input type="text" id="searchInput" placeholder="Unesi pojam...">
+        <select id="attributeSelect">
+            <option value="">Svi atributi</option>
+            <option value="nazivInstrumenta">Naziv</option>
+            <option value="vrsta">Vrsta</option>
+            <option value="kljuc">Ključ</option>
+            <option value="polifonija">Polifonija</option>
+            <option value="zemljaPodrijetla">Zemlja podrijetla</option>
+            <option value="stoljeceNastanka">Stoljeće nastanka</option>
+            <option value="materijal">Materijal</option>
+            <option value="prosjecnaTezinaKg">Težina (kg)</option>
+            <option value="žanrovi">Žanrovi</option>
+            <option value="podvrste">Podvrste</option>
+            <option value="predstavnici">Predstavnici</option>
+        </select>
+        <button type="submit">Pretraži</button>
+        <button type="button" id="resetBtn">Poništi</button>
+    </form>
+
+    <table id="instrumentTable" class="display">
+        <thead>
+            <tr>
+                <th>Naziv</th>
+                <th>Vrsta</th>
+                <th>Žanrovi</th>
+                <th>Ključ</th>
+                <th>Polifonija</th>
+                <th>Zemlja</th>
+                <th>Stoljeće</th>
+                <th>Materijal</th>
+                <th>Težina (kg)</th>
+                <th>Podvrste</th>
+                <th>Predstavnici</th>
+            </tr>
+        </thead>
+    </table>
+
+    <button id="downloadJson">Preuzmi JSON</button>
+    <button id="downloadCsv">Preuzmi CSV</button>
+
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+    <script>
+        let table;
+
+        // funkcija za asinkrono dohvacanje podataka iz baze
+        function fetchData(query = '', attribute = '') {
+            $.ajax({
+                url: `/api/instrumenti?query=${encodeURIComponent(query)}&attribute=${encodeURIComponent(attribute)}`,
+                method: 'GET',
+                success: function (data) {
+                    if (table) {
+                        table.clear().rows.add(data).draw();
+                    } else {
+                        table = $('#instrumentTable').DataTable({
+                            data: data,
+                            columns: [
+                                { data: 'nazivinstrumenta' },
+                                { data: 'vrsta' },
+                                { data: 'žanrovi', render: d => d ? d.join(', ') : '' },
+                                { data: 'kljuc' },
+                                { data: 'polifonija' },
+                                { data: 'zemljapodrijetla' },
+                                { data: 'stoljecenastanka' },
+                                { data: 'materijal' },
+                                { data: 'prosjecnatezinakg' },
+                                { data: 'podvrste', render: d => d ? d.map(p => `${p.nazivPodvrste} (${p.raspon})`).join(', ') : '' },
+                                { data: 'predstavnici', render: d => d ? d.map(p => `${p.ime} ${p.prezime}`).join(', ') : '' }
+                            ]
+                        });
+                    }
+                }
+            });
+        }
+
+        // pretrazivanje po filteru
+        $('#filterForm').on('submit', function (e) {
+            e.preventDefault();
+            const query = $('#searchInput').val();
+            const attribute = $('#attributeSelect').val();
+            fetchData(query, attribute);
+        });
+
+        // ponistavanje pretrage
+        $('#resetBtn').on('click', function () {
+            $('#searchInput').val('');
+            $('#attributeSelect').val('');
+            fetchData();
+        });
+
+        // preuzimanje JSON filtriranih podataka
+        $('#downloadJson').on('click', () => {
+            const query = $('#searchInput').val();
+            const attribute = $('#attributeSelect').val();
+            window.location.href = `/download/json?query=${encodeURIComponent(query)}&attribute=${encodeURIComponent(attribute)}`;
+        });
+
+        // preuzimanje filtriranih podataka u CSV
+        $('#downloadCsv').on('click', () => {
+            const query = $('#searchInput').val();
+            const attribute = $('#attributeSelect').val();
+            window.location.href = `/download/csv?query=${encodeURIComponent(query)}&attribute=${encodeURIComponent(attribute)}`;
+        });
+
+        // inicijalno ucitavanje svih podataka
+        fetchData();
+        
+    </script>
+
+</body>
+
+</html>

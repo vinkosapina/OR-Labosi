@@ -1,0 +1,34 @@
+nazivinstrumenta,vrsta,kljuc,polifonija,zemljapodrijetla,stoljecenastanka,materijal,prosjecnatezinakg,tip_odnosa,vrijednost1,vrijednost2
+Flauta,puhački,G,monofon,Slovenija,-430,lim,0.6,predstavnik,James,Galway
+Flauta,puhački,G,monofon,Slovenija,-430,lim,0.6,žanr,klasika,
+Gitara,žičani,G,polifon,nepoznato,,drvo,2.5,podvrsta,Akustična,E2-E6
+Gitara,žičani,G,polifon,nepoznato,,drvo,2.5,podvrsta,Električna,E2-E6
+Gitara,žičani,G,polifon,nepoznato,,drvo,2.5,podvrsta,Klasična,E2-E6
+Gitara,žičani,G,polifon,nepoznato,,drvo,2.5,predstavnik,Jimi,Hendrix
+Gitara,žičani,G,polifon,nepoznato,,drvo,2.5,žanr,razni,
+Klarinet,puhački,G,monofon,Njemačka,18,drvo,0.6,predstavnik,Benny,Goodman
+Klarinet,puhački,G,monofon,Njemačka,18,drvo,0.6,žanr,klasika,
+Klavir,žičani,,polifon,Italija,17,razni,400,predstavnik,Sergey,Rachmaninov
+Klavir,žičani,,polifon,Italija,17,razni,400,žanr,razni,
+Kontrabas,žičani,F,monofon,Europa,15,drvo,10,predstavnik,Ray,Brown
+Kontrabas,žičani,F,monofon,Europa,15,drvo,10,žanr,razni,
+Trombon,puhački,F,monofon,Engleska,16,lim,2,podvrsta,Alt trombon,A2-Eb5
+Trombon,puhački,F,monofon,Engleska,16,lim,2,podvrsta,Bas trombon,F1-F4
+Trombon,puhački,F,monofon,Engleska,16,lim,2,podvrsta,Tenor trombon,E2-F5
+Trombon,puhački,F,monofon,Engleska,16,lim,2,predstavnik,Ian,Bousfield
+Trombon,puhački,F,monofon,Engleska,16,lim,2,predstavnik,Joseph,Alessi
+Trombon,puhački,F,monofon,Engleska,16,lim,2,predstavnik,Wycliffe,Gordon
+Trombon,puhački,F,monofon,Engleska,16,lim,2,žanr,blues,
+Trombon,puhački,F,monofon,Engleska,16,lim,2,žanr,jazz,
+Truba,puhački,G,monofon,Egipat,-20,lim,1.1,predstavnik,Louis,Armstrong
+Truba,puhački,G,monofon,Egipat,-20,lim,1.1,žanr,jazz,
+Truba,puhački,G,monofon,Egipat,-20,lim,1.1,žanr,klasika,
+Tuba,puhački,F,monofon,Njemačka,19,lim,13,predstavnik,Arnold,Jacobs
+Tuba,puhački,F,monofon,Njemačka,19,lim,13,žanr,klasika,
+Viola,gudački,C,monofon,Italija,16,drvo,0.7,predstavnik,Wolfgang Amadeus,Mozart
+Violina,gudački,G,monofon,Italija,16,drvo,0.5,predstavnik,Joshua,Bell
+Violina,gudački,G,monofon,Italija,16,drvo,0.5,predstavnik,Niccolo,Paganini
+Violina,gudački,G,monofon,Italija,16,drvo,0.5,predstavnik,Nicola,Benedetti
+Violina,gudački,G,monofon,Italija,16,drvo,0.5,žanr,klasika,
+Violončelo,žičani,F,monofon,Italija,16,drvo,3,predstavnik,Mstislav,Rostropovich
+Violončelo,žičani,F,monofon,Italija,16,drvo,3,žanr,klasika,

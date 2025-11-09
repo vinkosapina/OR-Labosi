@@ -1,0 +1,85 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Generated schema for Root",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "properties": {
+      "naziv": {
+        "type": "string"
+      },
+      "vrsta": {
+        "type": "string"
+      },
+      "žanrovi": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      },
+      "ključ": {
+        "type": "string"
+      },
+      "polifonija": {
+        "type": "string"
+      },
+      "zemljaPodrijetla": {
+        "type": "string"
+      },
+      "stoljećeNastanka": {
+        "type": "number"
+      },
+      "materijal": {
+        "type": "string"
+      },
+      "prosječnaTežinaKg": {
+        "type": "number"
+      },
+      "podvrste": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "nazivPodvrste": {
+              "type": "string"
+            },
+            "raspon": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "nazivPodvrste",
+            "raspon"
+          ]
+        }
+      },
+      "predstavnici": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "ime": {
+              "type": "string"
+            },
+            "prezime": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "ime",
+            "prezime"
+          ]
+        }
+      }
+    },
+    "required": [
+      "naziv",
+      "vrsta",
+      "polifonija",
+      "zemljaPodrijetla",
+      "materijal",
+      "prosječnaTežinaKg",
+      "predstavnici"
+    ]
+  }
+}
