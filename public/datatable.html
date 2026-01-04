@@ -23,7 +23,7 @@
             <option value="stoljeceNastanka">Stoljeće nastanka</option>
             <option value="materijal">Materijal</option>
             <option value="prosjecnaTezinaKg">Težina (kg)</option>
-            <option value="žanrovi">Žanrovi</option>
+            <option value="zanrovi">Žanrovi</option>
             <option value="podvrste">Podvrste</option>
             <option value="predstavnici">Predstavnici</option>
         </select>
@@ -64,15 +64,17 @@
                 url: `/api/instrumenti?query=${encodeURIComponent(query)}&attribute=${encodeURIComponent(attribute)}`,
                 method: 'GET',
                 success: function (data) {
+                    const rows = data.response;
+
                     if (table) {
-                        table.clear().rows.add(data).draw();
+                        table.clear().rows.add(rows).draw();
                     } else {
                         table = $('#instrumentTable').DataTable({
-                            data: data,
+                            data: rows,
                             columns: [
                                 { data: 'nazivinstrumenta' },
                                 { data: 'vrsta' },
-                                { data: 'žanrovi', render: d => d ? d.join(', ') : '' },
+                                { data: 'zanrovi', render: d => d ? d.join(', ') : '' },
                                 { data: 'kljuc' },
                                 { data: 'polifonija' },
                                 { data: 'zemljapodrijetla' },
@@ -85,6 +87,7 @@
                         });
                     }
                 }
+
             });
         }
 
@@ -119,7 +122,7 @@
 
         // inicijalno ucitavanje svih podataka
         fetchData();
-        
+
     </script>
 
 </body>

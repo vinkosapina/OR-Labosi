@@ -1,0 +1,200 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "REST API: Glazbeni instrumenti",
+    "description": "RESTful API za izlaganje otvorenog skupa podataka o glazbenim instrumentima",
+    "version": "1.0.0",
+    "contact": {
+      "name": "Vinko Šapina",
+      "email": "vinko.sapina@fer.unizg.hr"
+    },
+    "license": {
+      "name": "CC0 1.0 Universal",
+      "url": "https://creativecommons.org/publicdomain/zero/1.0/legalcode.en"
+    }
+  },
+  "paths": {
+    "/api/instrumenti": {
+      "get": {
+        "summary": "Dohvat svih instrumenata",
+        "description": "Vraća cjelokupnu kolekciju instrumenata. Omogućuje filtriranje putem query parametra.",
+        "parameters": [
+          {
+            "name": "query",
+            "in": "query",
+            "description": "Tekst za filtriranje instrumenata",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Uspješno dohvaćena kolekcija instrumenata"
+          },
+          "500": {
+            "description": "Greška na poslužitelju"
+          }
+        }
+      },
+      "post": {
+        "summary": "Dodavanje novog instrumenta",
+        "description": "Dodaje novi instrument u kolekciju",
+        "responses": {
+          "200": {
+            "description": "Instrument uspješno dodan"
+          },
+          "400": {
+            "description": "Neispravni podaci"
+          }
+        }
+      }
+    },
+
+    "/api/instrumenti/{naziv}": {
+      "get": {
+        "summary": "Dohvat instrumenta po nazivu",
+        "description": "Vraća pojedini instrument temeljem jedinstvenog identifikatora",
+        "parameters": [
+          {
+            "name": "naziv",
+            "in": "path",
+            "description": "Naziv instrumenta",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Instrument pronađen"
+          },
+          "404": {
+            "description": "Instrument ne postoji"
+          }
+        }
+      },
+      "put": {
+        "summary": "Ažuriranje instrumenta",
+        "description": "Ažurira jedan ili više atributa instrumenta",
+        "parameters": [
+          {
+            "name": "naziv",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Instrument uspješno ažuriran"
+          },
+          "400": {
+            "description": "Neispravni podaci"
+          },
+          "404": {
+            "description": "Instrument ne postoji"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Brisanje instrumenta",
+        "description": "Briše instrument iz kolekcije",
+        "parameters": [
+          {
+            "name": "naziv",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Instrument obrisan"
+          },
+          "404": {
+            "description": "Instrument ne postoji"
+          }
+        }
+      }
+    },
+
+    "/api/instrumenti/vrsta/{vrsta}": {
+      "get": {
+        "summary": "Instrumenti po vrsti",
+        "description": "Vraća instrumente filtrirane po vrsti",
+        "parameters": [
+          {
+            "name": "vrsta",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Lista instrumenata po vrsti"
+          }
+        }
+      }
+    },
+
+    "/api/instrumenti/zemlja/{zemlja}": {
+      "get": {
+        "summary": "Instrumenti po zemlji podrijetla",
+        "description": "Vraća instrumente filtrirane po zemlji",
+        "parameters": [
+          {
+            "name": "zemlja",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Lista instrumenata po zemlji"
+          },
+          "404": {
+            "description": "Ne postoje instrumenti za traženu zemlju"
+          }
+        }
+      }
+    },
+
+    "/api/instrumenti/stoljece/{st}": {
+      "get": {
+        "summary": "Instrumenti po stoljeću",
+        "description": "Vraća instrumente filtrirane po stoljeću nastanka",
+        "parameters": [
+          {
+            "name": "st",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Lista instrumenata po stoljeću"
+          },
+          "404": {
+            "description": "Ne postoje instrumenti za traženo stoljeće"
+          }
+        }
+      }
+    }
+  }
+}
