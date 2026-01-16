@@ -10,6 +10,7 @@ const pool = new Pool({
   port: 5432,
 });
 
+router.use(express.json());
 
 
 router.get('/instrumenti', async (req, res) => {
