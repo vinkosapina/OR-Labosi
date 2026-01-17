@@ -90,14 +90,55 @@ router.get('/instrumenti', async (req, res) => {
       i.prosjecnatezinakg
   `;
 
+  // JSON-LD kontekst
+  const context = {
+    "@vocab": "https://schema.org/",
+
+    "nazivinstrumenta": "name",
+    "vrsta": "category",
+    "kljuc": "musicKey",
+    "polifonija": "additionalProperty",
+    "zemljapodrijetla": "countryOfOrigin",
+    "stoljecenastanka": "dateCreated",
+    "materijal": "material",
+    "prosjecnatezinakg": "weight",
+
+    "zanrovi": "genre",
+
+    "predstavnici": {
+      "@id": "performer",
+      "@container": "@set"
+    },
+    "ime": "givenName",
+    "prezime": "familyName",
+
+    "podvrste": {
+      "@id": "isVariantOf",
+      "@container": "@set"
+    },
+    "nazivPodvrste": "name",
+    "raspon": "description"
+  };
+
   try {
     const result = await pool.query(sql, values);
-    return success(res, result.rows, 'Dohvaćena kolekcija instrumenata');
+
+    const jsonLdResponse = {
+      "@context": context,
+      "@type": "Collection",
+      "hasPart": result.rows
+    };
+
+    return success(res, jsonLdResponse, 'Dohvaćena kolekcija instrumenata');
   } catch (err) {
     console.error(err);
     return error(res, 'Neuspješno dohvaćanje instrumenata');
   }
 });
+
+
+
+
 
 
 router.get('/instrumenti/vrsta/:vrsta', async (req, res) => {

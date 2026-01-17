@@ -51,6 +51,7 @@
 
     <button id="downloadJson">Preuzmi JSON</button>
     <button id="downloadCsv">Preuzmi CSV</button>
+    <input id="refresh_data_button" type="button" value="Refresh" onclick="fetchData();" />
 
 
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
@@ -64,7 +65,8 @@
                 url: `/api/instrumenti?query=${encodeURIComponent(query)}&attribute=${encodeURIComponent(attribute)}`,
                 method: 'GET',
                 success: function (data) {
-                    const rows = data.response;
+
+                    const rows = data.response.hasPart;
 
                     if (table) {
                         table.clear().rows.add(rows).draw();
@@ -81,15 +83,26 @@
                                 { data: 'stoljecenastanka' },
                                 { data: 'materijal' },
                                 { data: 'prosjecnatezinakg' },
-                                { data: 'podvrste', render: d => d ? d.map(p => `${p.nazivPodvrste} (${p.raspon})`).join(', ') : '' },
-                                { data: 'predstavnici', render: d => d ? d.map(p => `${p.ime} ${p.prezime}`).join(', ') : '' }
+                                {
+                                    data: 'podvrste',
+                                    render: d => d
+                                        ? d.map(p => `${p.nazivPodvrste} (${p.raspon})`).join(', ')
+                                        : ''
+                                },
+                                {
+                                    data: 'predstavnici',
+                                    render: d => d
+                                        ? d.map(p => `${p.ime} ${p.prezime}`).join(', ')
+                                        : ''
+                                }
                             ]
                         });
                     }
                 }
-
             });
         }
+
+
 
         // pretrazivanje po filteru
         $('#filterForm').on('submit', function (e) {
@@ -118,6 +131,10 @@
             const query = $('#searchInput').val();
             const attribute = $('#attributeSelect').val();
             window.location.href = `/download/csv?query=${encodeURIComponent(query)}&attribute=${encodeURIComponent(attribute)}`;
+        });
+
+        $('#refresh_data_button').on('click', () => {
+            fetchData();
         });
 
         // inicijalno ucitavanje svih podataka

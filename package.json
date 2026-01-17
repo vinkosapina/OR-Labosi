@@ -1,7 +1,8 @@
 {
   "dependencies": {
     "datatables.net-buttons-dt": "^3.2.5",
-    "express": "^5.1.0",
+    "express": "^5.2.1",
+    "express-openid-connect": "^2.19.4",
     "jquery": "^3.7.1",
     "json2csv": "^6.0.0-alpha.2",
     "path": "^0.12.7",
