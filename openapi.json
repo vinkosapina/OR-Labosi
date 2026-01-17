@@ -2,7 +2,7 @@
   "openapi": "3.0.3",
   "info": {
     "title": "REST API: Glazbeni instrumenti",
-    "description": "RESTful API za izlaganje otvorenog skupa podataka o glazbenim instrumentima",
+    "description": "RESTful API za izlaganje otvorenog skupa podataka o glazbenim instrumentima u JSON-LD formatu",
     "version": "1.0.0",
     "contact": {
       "name": "Vinko Šapina",
@@ -13,11 +13,12 @@
       "url": "https://creativecommons.org/publicdomain/zero/1.0/legalcode.en"
     }
   },
+
   "paths": {
     "/api/instrumenti": {
       "get": {
         "summary": "Dohvat svih instrumenata",
-        "description": "Vraća cjelokupnu kolekciju instrumenata. Omogućuje filtriranje putem query parametra.",
+        "description": "Vraća cjelokupnu kolekciju instrumenata u JSON-LD formatu. Omogućuje filtriranje putem query parametra.",
         "parameters": [
           {
             "name": "query",
@@ -31,7 +32,14 @@
         ],
         "responses": {
           "200": {
-            "description": "Uspješno dohvaćena kolekcija instrumenata"
+            "description": "Uspješno dohvaćena kolekcija instrumenata (JSON-LD)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/InstrumentCollection"
+                }
+              }
+            }
           },
           "500": {
             "description": "Greška na poslužitelju"
@@ -55,12 +63,11 @@
     "/api/instrumenti/{naziv}": {
       "get": {
         "summary": "Dohvat instrumenta po nazivu",
-        "description": "Vraća pojedini instrument temeljem jedinstvenog identifikatora",
+        "description": "Vraća pojedini instrument temeljem jedinstvenog naziva",
         "parameters": [
           {
             "name": "naziv",
             "in": "path",
-            "description": "Naziv instrumenta",
             "required": true,
             "schema": {
               "type": "string"
@@ -69,7 +76,14 @@
         ],
         "responses": {
           "200": {
-            "description": "Instrument pronađen"
+            "description": "Instrument pronađen",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Instrument"
+                }
+              }
+            }
           },
           "404": {
             "description": "Instrument ne postoji"
@@ -141,7 +155,14 @@
         ],
         "responses": {
           "200": {
-            "description": "Lista instrumenata po vrsti"
+            "description": "Filtrirana kolekcija instrumenata (JSON-LD)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/InstrumentCollection"
+                }
+              }
+            }
           }
         }
       }
@@ -163,7 +184,14 @@
         ],
         "responses": {
           "200": {
-            "description": "Lista instrumenata po zemlji"
+            "description": "Filtrirana kolekcija instrumenata (JSON-LD)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/InstrumentCollection"
+                }
+              }
+            }
           },
           "404": {
             "description": "Ne postoje instrumenti za traženu zemlju"
@@ -188,10 +216,83 @@
         ],
         "responses": {
           "200": {
-            "description": "Lista instrumenata po stoljeću"
+            "description": "Filtrirana kolekcija instrumenata (JSON-LD)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/InstrumentCollection"
+                }
+              }
+            }
           },
           "404": {
             "description": "Ne postoje instrumenti za traženo stoljeće"
+          }
+        }
+      }
+    }
+  },
+
+  "components": {
+    "schemas": {
+      "Instrument": {
+        "type": "object",
+        "properties": {
+          "nazivinstrumenta": { "type": "string" },
+          "vrsta": { "type": "string" },
+          "kljuc": { "type": "string" },
+          "polifonija": { "type": "string" },
+          "zemljapodrijetla": { "type": "string" },
+          "stoljecenastanka": { "type": "integer" },
+          "materijal": { "type": "string" },
+          "prosjecnatezinakg": { "type": "number" },
+
+          "zanrovi": {
+            "type": "array",
+            "items": { "type": "string" }
+          },
+
+          "podvrste": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "nazivPodvrste": { "type": "string" },
+                "raspon": { "type": "string" }
+              }
+            }
+          },
+
+          "predstavnici": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "ime": { "type": "string" },
+                "prezime": { "type": "string" }
+              }
+            }
+          }
+        }
+      },
+
+      "InstrumentCollection": {
+        "type": "object",
+        "description": "JSON-LD kolekcija instrumenata",
+        "properties": {
+          "@context": {
+            "type": "object",
+            "description": "JSON-LD kontekst koji mapira ključeve na Schema.org"
+          },
+          "@type": {
+            "type": "string",
+            "example": "Collection"
+          },
+          "hasPart": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Instrument"
+            }
           }
         }
       }
